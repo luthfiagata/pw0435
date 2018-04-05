@@ -1,5 +1,5 @@
 body{
-	background-color: #FFFFFF;
+	background-color: #A9A9A9;
 	}
 table{
 	width: 100%;
@@ -12,5 +12,8 @@ tr,td{
 	padding: 10px;
 }
 tr:nth-child(even){
-	background-color: #dddddd;
+	background-color: #00FFFF;
+}
+th{
+	text-align: center;
 }
