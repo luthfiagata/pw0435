@@ -11,7 +11,11 @@ p {
 }
 
 .Login{        
+<<<<<<< HEAD
     margin: 20px auto;
+=======
+    margin: 20px auto; 
+>>>>>>> 158a834ddaf098b83f525ff59381d5b243879ef7
     width: 300px;
 
 }

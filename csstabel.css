@@ -1,0 +1,16 @@
+body{
+	background-color: #FFFFFF;
+	}
+table{
+	width: 100%;
+	text-align: center;
+	background-color: #ffffff;
+}
+tr,td{
+	border: 1px solid #dddddd;
+	text-align: left;
+	padding: 10px;
+}
+tr:nth-child(even){
+	background-color: #dddddd;
+}
