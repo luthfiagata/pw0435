@@ -1,5 +1,7 @@
 body{
-	background-color: #A9A9A9;
+    background: url(img/bglogin.png);
+    background-position: center; 
+    padding: 30px 10px;
 	}
 table{
 	width: 100%;
@@ -12,8 +14,16 @@ tr,td{
 	padding: 10px;
 }
 tr:nth-child(even){
-	background-color: #00FFFF;
+	background-color: #B0C4DE;
 }
 th{
-	text-align: center;
+	text-align: left;
+	font-size: 20px;
+	background-color: #708090;
+}
+.judul{
+	text-align: left;
+	font-size: 30px;
+	padding: 10px;
+	background-color: #ffffff;
 }

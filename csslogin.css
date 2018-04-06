@@ -1,7 +1,8 @@
 body {
     font-family: Verdana;
-    background-color: lightblue;
-    padding: 50px;
+    background: url(img/bglogin.png);
+    background-position: center; 
+    padding: 9px;
 }
 
 p {
