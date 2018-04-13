@@ -1,0 +1,52 @@
+.header{
+	width: 900px;
+	height: 150px;
+	margin: 0 auto;
+	background: #666666;
+}
+.header h1{ 
+	float: left;
+	padding: 10px;
+	text-align: left;
+	font-family: arial;
+	margin-left: 30px;
+	margin-right: 500px;
+	text-decoration: underline;
+	border-radius: 10px;
+	background: #4d4d4d; 
+	width: 200px;
+}
+.header h1 small{
+	text-align: left;
+	text-decoration: none;
+	font-family: arial;
+	margin-left: 10px;
+	font-size: 20px;
+	border-bottom: 1px solid #ffffff;
+}
+.menu{
+	border: 1px solid;
+	border-color: #808080;
+	width: 900px;
+	height: 45px;
+	margin: auto;
+	background: #808080;
+	text-align: center;
+}
+.menu ul li{
+	margin: 0 20px;
+	display: inline;
+}
+.konten{
+	border: 1px solid;
+	width: 900px;
+	height: 440px;
+	margin: 0 auto;
+}
+.subkonten{
+	width: 289px;
+	height: 425px;
+	float: left;
+	margin: 5px;
+	background: #dddddd;
+}
