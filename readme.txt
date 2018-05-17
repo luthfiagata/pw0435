@@ -2,4 +2,4 @@
 #luthfi agata
 #16.11.0435 
 
-tes sebelum tidur
+tes --global luthfi
