@@ -1,0 +1,118 @@
+private void prosesMasukanMahasiswa(String nim, String nama, String alamat,
+            String tglLahir, String jnsKelamin) {
+        try {
+            query = "INSERT INTO Anggota VALUES('" + nim + "','" + nama + "','"
+                    + alamat + "','" + tglLahir + "','" + jnsKelamin + "')";
+            PreparedStatement prestatement = bd.koneksi.prepareStatement(query);
+            prestatement.executeUpdate(query);
+
+        } catch (SQLException se) {
+            JOptionPane.showMessageDialog(null, "Terjadi kesalahan masukan data! Error :" + se,
+                    "Terjadi Kesalahan", JOptionPane.ERROR_MESSAGE);
+            System.exit(0);
+        }
+    }
+
+    private void prosesUbahMahasiswa(String nim, String nama, String alamat,
+            String tglLahir, String jnsKelamin) {
+        try {
+            query = "UPDATE Anggota SET Nama = '" + nama
+                    + "', Alamat = '" + alamat
+                    + "', TanggalLahir = '" + tglLahir
+                    + "', JenisKelamin = '" + jnsKelamin
+                    + "'WHERE NIM = '" + nim + "'";
+            PreparedStatement preparedStatement = bd.koneksi.prepareStatement(query);
+            preparedStatement.executeUpdate(query);
+        } catch (SQLException se) {
+            JOptionPane.showMessageDialog(null, "Terjadi kesalahan ketika proses ubah data!, Error:" + se,
+                    "Terjadi kesalahan", JOptionPane.ERROR_MESSAGE);
+            System.exit(0);
+        }
+    }
+
+    private void prosesHapusAnggota(String nim) {
+        try {
+            query = "DELETE from Anggota WHERE NIM = '" + nim + "'";
+            PreparedStatement prestatement = bd.koneksi.prepareStatement(query);
+            prestatement.executeUpdate(query);
+        } catch (SQLException se) {
+            JOptionPane.showMessageDialog(null,
+                    "Terjadi kesalahan ketika proses hapus data, error:" + se,
+                    "Terjadi Kesalahan", JOptionPane.ERROR_MESSAGE);
+            System.exit(0);
+        }
+    }
+
+private void tampilTeks() {
+        int baris = tblAnggota.getSelectedRow();
+        txtNIM.setText(tbModel.getValueAt(baris, 0).toString());
+        txtNama.setText(tbModel.getValueAt(baris, 1).toString());
+        txtAlamat.setText(tbModel.getValueAt(baris, 2).toString());
+        spModel.setValue(Date.valueOf(tbModel.getValueAt(baris, 3).toString()));
+        String jeniskelamin = tbModel.getValueAt(baris, 4).toString();
+        if (jeniskelamin.equals("P")) {
+            rbPria.setSelected(true);
+        } else {
+            rbWanita.setSelected(true);
+        }
+    }
+
+
+    private void btnSimpanActionPerformed(java.awt.event.ActionEvent evt) {                                          
+        // TODO add your handling code here:
+        String nim = txtNIM.getText();
+        String nama = txtNama.getText();
+        String alamat = txtAlamat.getText();
+        String tglLahir = new SimpleDateFormat("yyyy/MM/dd").format(spnTanggalLahir.getValue()).toString();
+        String jnsKelamin = "P";
+        if (rbPria.isSelected() == true) {
+            jnsKelamin = "P";
+        } else {
+            jnsKelamin = "W";
+        }
+        if (Operasi.equalsIgnoreCase("INSERT")) {
+            prosesMasukanMahasiswa(nim, nama, alamat, tglLahir, jnsKelamin);
+            JOptionPane.showMessageDialog(null, "Data telah disimpan", "Info",
+                    JOptionPane.INFORMATION_MESSAGE);
+        } else {
+
+            if (Operasi.equalsIgnoreCase("UPDATE")) {
+                prosesUbahMahasiswa(nim, nama, alamat, tglLahir, jnsKelamin);
+                JOptionPane.showMessageDialog(null, "Data sudah diubah", "Info",
+                        JOptionPane.INFORMATION_MESSAGE);
+            }
+        }
+        masukanTabel();
+}                                         
+
+    private void btnUbahActionPerformed(java.awt.event.ActionEvent evt) {                                        
+        // TODO add your handling code here:
+        AktifkanSimpan(true);
+        aktifkanText(true);
+        txtNIM.setEnabled(false);
+        Operasi = "UPDATE";
+}                                       
+
+    private void btnBatalActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        // TODO add your handling code here:
+        tampilTeks();
+        aktifkanText(false);
+        AktifkanSimpan(false);
+        Operasi = "";
+}                                        
+
+    private void btnHapusActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        // TODO add your handling code here:
+        String nim = txtNIM.getText();
+        if (JOptionPane.showConfirmDialog(null, "Apakah Anda yakin akan menghapus data ini?",
+                "Konfirmasi", JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION) {
+            prosesHapusAnggota(nim);
+            masukanTabel();
+        }
+}                                        
+
+    private void btnTutupActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        // TODO add your handling code here:
+        dispose();
+}                                        

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"> 
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="fa/web-fa/css/fontawesome-all.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+
+    <script>
+    	var app = angular.module("myApp", ["ngRoute"]);
+    	app.config(function($routeProvider){
+    		$routeProvider
+		    .when("/", {
+		        templateUrl : "main.htm"
+		    })
+		    .when("/about", {
+		    	templateUrl : "about.htm"
+		    });
+
+    	});
+    </script>
+
+  </head>
+
+  <body>
+
+  	<div ng-app="myApp" class="container-fluid">
+  	  <div class="row">
+  	  	<div class="col-md-12 header">
+  	  		<h1>Title of the Web</h1>
+  	  	</div>
+	  </div>
+
+	  <div class="row">
+	  	<div class="col-md-12 menu">
+	  		<a href="#/!"><i class="fas fa-home"></i> 
+	  		Home</a> | 
+	  		<a href="#!about">About</a> | 
+	  		<a href="#!product">Product</a> | 
+	  		<a href="#!contact">Contact</a>
+	  	</div>
+	  </div>
+
+	  <ng-view></ng-view>
+
+	  <div class="row">
+	  	<hr />
+	  	<div class="col-md-12">&copy; 2018 - Arif Laksito</div>
+	  </div>
+
+	</div>
+
+  </body>
+
+</html>
