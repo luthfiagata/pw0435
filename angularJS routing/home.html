@@ -8,10 +8,31 @@
 	<link rel="stylesheet" type="text/css" href="fa/web-fa/css/fontawesome-all.css">
 	<link rel="stylesheet" type="text/css" href="csswebku.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+
+	<script>
+var app = angular.module("myApp", ["ngRoute"]);
+app.config(function($routeProvider) {
+    $routeProvider
+    .when("/", {
+        templateUrl : "main.htm"
+    })
+    .when("/red", {
+        templateUrl : "red.htm"
+    })
+    .when("/green", {
+        templateUrl : "green.htm"
+    })
+    .when("/blue", {
+        templateUrl : "blue.htm"
+    });
+});
+</script>
 	
 </head>
-<body>
- <div class="container">
+<body ng-app="myApp"
+
+ <div ng-app='myApp' class="container">
  	<h1> welkom</h1>
  	<p>Selamat datang di webku gaisssss</p>
  	<button class="btn btn-info"><i class="fas fa-chalkboard-teacher"></i> join</button>
@@ -22,30 +43,32 @@
  		</div>
  	</div>
 
- 	<div class="row">
+ 	<div ng-app='myApp'  class="row">
  		<div class="col-md-12 menu">
- 			some menu will be perfek 
+ 			
+ 			<i class="fab fa-fort-awesome"><p><a href="#/!">Main</a></p>
+			<a href="#!red">Red</a>
+			<a href="#!green">Green</a>
+			<a href="#!blue">Blue</a>
+
+<div ng-view></div>
+
+
+
  		</div>
  	</div>
 
- 	<div class="row">
- 		<div class="col-md-8">
- 			<div class="alert alert-success">Examples in Every Chapter</div>
- 			<p>This HTML tutorial contains hundreds of HTML examples.
 
-With our online HTML editor, you can edit the HTML, and click on a button to view the result.</p>
- 		</div>
- 	</div>
 
- 	<div class="row">
+ 	<!-- <div class="row">
  		<div class="col-md-5">
  			<div class="fas fa-camera-retro">Examples in Every Chapter</div>
- 			<p><i class="fab fa-amilia"></i>This HTML tutorial contains hundreds of HTML examples.
+ 			<p></i>This HTML tutorial contains hundreds of HTML examples.
 
 With our online HTML editor, you can edit the HTML, and click on a button to view the result.</p>
  		</div>
  	</div>
-
+ -->
 
 
  </div>
