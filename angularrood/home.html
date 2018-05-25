@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html leng="en">
+
+<head>
+	<title></title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="fa/web-fa/css/fontawesome-all.css">
+	<link rel="stylesheet" type="text/css" href="csswebku.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>    
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+
+    <script>
+var app = angular.module("myApp", ["ngRoute"]);
+app.config(function($routeProvider) {
+    $routeProvider
+    .when("/", {
+        templateUrl : "main.htm" , controller : "homectrl"
+    })
+
+    .when("/about", {
+      templateUrl : "about.htm"
+    })
+
+     .when("/contact", {
+      templateUrl : "contact.htm"
+     })
+      .when("/product", {
+      templateUrl : "product.htm"
+     })
+    });
+
+    
+    app.controller('homectrl', function($scope){
+      $scope.title = "Welcome";
+    })
+    app.controller('mainctrl', function($scope){
+      $scope.text1 = "This is paragfaf 1";
+      $scope.text2 = "sample of text to develope website using framework angular JS";
+      $scope.text3 = "We learn about routing and controller in angular JS";
+    })
+
+
+</script>
+
+
+
+</head>
+<body>
+
+<div ng-app="myApp" ng-controller="homectrl" class="container-fluid">
+<div ng-app="myApp" class="container-fluid">
+  	<div class="row">
+  	<div class="col-md-12 header">
+  		<h1>{{title}}</h1>
+  		</div>
+  	</div>
+
+  	<div class="row">
+  	<div class="col-md-12 menu">
+    <a #href="#!"><i class="fas fa-home"></i>
+     <a href="#!">Home</a>
+     <a #href="#!"><i class="far fa-id-card"></i>
+      <a href="#!about">About</a>
+      <a #href="#!"><i class="fas fa-phone"></i>
+        <a href="#!contact">Contact</a>
+       <a #href="#!"><i class="far fa-star"></i>
+        <a href="#!product">Product</a>
+
+
+  		</div>
+  	</div>
+
+  
+
+  	 <ng-view></ng-view> 
+  	
+ </div>
+    
+
+  </body>
+
+</html>
